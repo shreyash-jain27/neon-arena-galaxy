@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { updateGameProgress } from '../services/mockData';
-import { Heart, Shield, Sword, Scroll, GemSquare, Skull, BookOpen, Compass } from 'lucide-react';
+import { Heart, Shield, Sword, Scroll, Gem, Skull, BookOpen, Compass, Zap } from 'lucide-react';
 
 // Game types
 interface Character {
@@ -1089,7 +1088,7 @@ const MysticLegends = () => {
                 showInventory ? 'bg-purple-600' : 'bg-purple-600/60 hover:bg-purple-600'
               }`}
             >
-              <GemSquare size={14} className="mr-1" /> Inventory
+              <Gem size={12} className="mr-1" /> Inventory
             </button>
             <button 
               onClick={toggleCharacter}
@@ -1203,7 +1202,7 @@ const MysticLegends = () => {
                     
                     <div className="flex space-x-2">
                       <div className="text-white/90 text-xs flex items-center bg-gaming-dark/50 px-2 py-1 rounded">
-                        <GemSquare size={12} className="text-yellow-400 mr-1" />
+                        <Gem size={12} className="text-yellow-400 mr-1" />
                         Gold: {character.gold}
                       </div>
                       <div className="text-white/90 text-xs flex items-center bg-gaming-dark/50 px-2 py-1 rounded">
@@ -1241,7 +1240,7 @@ const MysticLegends = () => {
                 {showInventory && (
                   <div className="bg-gaming-dark/50 p-4 rounded-lg overflow-y-auto">
                     <h3 className="text-lg font-bold text-purple-400 mb-3 flex items-center">
-                      <GemSquare size={16} className="mr-2" />
+                      <Gem size={16} className="mr-2" />
                       Inventory
                     </h3>
                     
