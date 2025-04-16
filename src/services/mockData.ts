@@ -13,31 +13,104 @@ export const players = [
   { id: "10", name: "VirtualViper", score: 980, rank: "Bronze", wins: 8, losses: 32 },
 ];
 
-// Mock game data
+// Mock game data - expanding with more details
 export const games = [
   { 
-    id: "neon-racer", 
-    name: "Neon Racer", 
-    description: "High-speed racing through futuristic neon landscapes",
-    thumbnail: "https://placehold.co/300x200/4a148c/9c27b0?text=Neon+Racer"
+    id: "cybernetic-assault", 
+    name: "Cybernetic Assault", 
+    description: "A fast-paced action game in a dystopian cyberpunk world. Battle your way through enemy cyborgs and reclaim the city.",
+    thumbnail: "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
+    category: "Action",
+    rating: 4.8,
+    players: "20k+",
+    highscore: 95000,
+    lastPlayed: new Date(Date.now() - 86400000 * 2),
+    progress: 75,
+    achievements: [
+      { id: "perfect-run", name: "Perfect Run", description: "Complete a level without taking damage", unlocked: true },
+      { id: "speed-demon", name: "Speed Demon", description: "Complete the game under 2 hours", unlocked: false }
+    ]
   },
   { 
-    id: "cyber-shooter", 
-    name: "Cyber Shooter", 
-    description: "First-person shooter in a dystopian cyberpunk world",
-    thumbnail: "https://placehold.co/300x200/004d40/009688?text=Cyber+Shooter"
+    id: "neon-racer-x", 
+    name: "Neon Racer X", 
+    description: "High-speed racing through futuristic neon landscapes. Customize your vehicle and compete in global tournaments.",
+    thumbnail: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
+    category: "Racing",
+    rating: 4.6,
+    players: "15k+",
+    highscore: 127500,
+    lastPlayed: new Date(Date.now() - 86400000 * 5),
+    progress: 45,
+    achievements: [
+      { id: "drift-king", name: "Drift King", description: "Perform a perfect drift for 5 seconds", unlocked: true },
+      { id: "speed-demon", name: "Speed Demon", description: "Reach top speed in 3 seconds", unlocked: true },
+      { id: "champion", name: "Champion", description: "Win the World Championship", unlocked: false }
+    ]
   },
   { 
     id: "galaxy-conquest", 
     name: "Galaxy Conquest", 
-    description: "Strategy game of interstellar warfare and diplomacy",
-    thumbnail: "https://placehold.co/300x200/0d47a1/2196f3?text=Galaxy+Conquest"
+    description: "Strategy game of interstellar warfare and diplomacy. Expand your empire and conquer the galaxy.",
+    thumbnail: "https://images.unsplash.com/photo-1614294149013-6b284299b59d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    category: "Strategy",
+    rating: 4.9,
+    players: "18k+",
+    highscore: 348900,
+    lastPlayed: new Date(Date.now() - 86400000 * 1),
+    progress: 90,
+    achievements: [
+      { id: "diplomat", name: "Master Diplomat", description: "Form 10 alliances in a single game", unlocked: false },
+      { id: "conqueror", name: "Galactic Conqueror", description: "Control 50 star systems", unlocked: true }
+    ]
   },
   { 
-    id: "pixel-adventure", 
-    name: "Pixel Adventure", 
-    description: "Retro platform adventure with modern twists",
-    thumbnail: "https://placehold.co/300x200/bf360c/ff5722?text=Pixel+Adventure"
+    id: "mystic-legends", 
+    name: "Mystic Legends", 
+    description: "An immersive RPG with stunning visuals and rich storyline. Embark on an epic journey across magical realms.",
+    thumbnail: "https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
+    category: "RPG",
+    rating: 4.7,
+    players: "12k+",
+    highscore: 235000,
+    lastPlayed: new Date(Date.now() - 86400000 * 8),
+    progress: 30,
+    achievements: [
+      { id: "dragon-slayer", name: "Dragon Slayer", description: "Defeat the ancient dragon", unlocked: false },
+      { id: "master-mage", name: "Master Mage", description: "Learn all magic spells", unlocked: false }
+    ]
+  },
+  { 
+    id: "space-warriors", 
+    name: "Space Warriors", 
+    description: "Intense space combat simulator with stunning graphics and realistic physics.",
+    thumbnail: "https://images.unsplash.com/photo-1496347646636-ea47f7d6b37b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    category: "Action",
+    rating: 4.3,
+    players: "8k+",
+    highscore: 78500,
+    lastPlayed: null,
+    progress: 0,
+    achievements: [
+      { id: "ace-pilot", name: "Ace Pilot", description: "Shoot down 50 enemy ships", unlocked: false },
+      { id: "survivor", name: "Survivor", description: "Complete the campaign on hard difficulty", unlocked: false }
+    ]
+  },
+  { 
+    id: "stealth-ninja", 
+    name: "Stealth Ninja", 
+    description: "Stealth action game where precision and timing are everything. Move silently, strike swiftly.",
+    thumbnail: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+    category: "Action",
+    rating: 4.5,
+    players: "10k+",
+    highscore: 112000,
+    lastPlayed: null,
+    progress: 0,
+    achievements: [
+      { id: "shadow-master", name: "Shadow Master", description: "Complete a mission without being detected", unlocked: false },
+      { id: "silent-assassin", name: "Silent Assassin", description: "Eliminate 100 enemies with stealth kills", unlocked: false }
+    ]
   }
 ];
 
@@ -63,7 +136,14 @@ export const currentUser = {
   streak: 5,
   joinDate: "2023-01-15",
   items: ["Premium Avatar", "Neon Skin Pack", "VIP Badge"],
-  friends: ["2", "3", "5"]
+  friends: ["2", "3", "5"],
+  // Game progress tracking
+  gameProgress: [
+    { gameId: "cybernetic-assault", timePlayed: 2450, highscore: 95000, achievements: 1, lastPlayed: new Date(Date.now() - 86400000 * 2) },
+    { gameId: "neon-racer-x", timePlayed: 1280, highscore: 127500, achievements: 2, lastPlayed: new Date(Date.now() - 86400000 * 5) },
+    { gameId: "galaxy-conquest", timePlayed: 3650, highscore: 348900, achievements: 1, lastPlayed: new Date(Date.now() - 86400000 * 1) },
+    { gameId: "mystic-legends", timePlayed: 890, highscore: 235000, achievements: 0, lastPlayed: new Date(Date.now() - 86400000 * 8) }
+  ]
 };
 
 // Mock Friend Requests
@@ -80,3 +160,36 @@ export const storeItems = [
   { id: "4", name: "VIP Badge", description: "Show off your VIP status", price: 2000, type: "badge" },
   { id: "5", name: "Chat Emotes Pack", description: "50+ animated chat emotes", price: 500, type: "emote" }
 ];
+
+// Game progress tracking service
+export const updateGameProgress = (gameId: string, score: number) => {
+  const gameProgress = currentUser.gameProgress.find(progress => progress.gameId === gameId);
+  
+  if (gameProgress) {
+    // Update existing progress
+    gameProgress.timePlayed += 60; // Add 1 minute of play time
+    gameProgress.lastPlayed = new Date();
+    if (score > gameProgress.highscore) {
+      gameProgress.highscore = score;
+    }
+  } else {
+    // Create new progress entry
+    currentUser.gameProgress.push({
+      gameId,
+      timePlayed: 60,
+      highscore: score,
+      achievements: 0,
+      lastPlayed: new Date()
+    });
+  }
+  
+  // Add XP for playing
+  currentUser.xp += 50;
+  if (currentUser.xp >= currentUser.nextLevelXp) {
+    currentUser.level += 1;
+    currentUser.xp = currentUser.xp - currentUser.nextLevelXp;
+    currentUser.nextLevelXp = Math.floor(currentUser.nextLevelXp * 1.2);
+  }
+  
+  return { updatedProgress: currentUser.gameProgress, xp: currentUser.xp, level: currentUser.level };
+};

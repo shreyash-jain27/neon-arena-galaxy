@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Play, Star, Users, Award } from 'lucide-react';
 
 export interface GameCardProps {
@@ -12,7 +13,7 @@ export interface GameCardProps {
   featured?: boolean;
 }
 
-const GameCard = ({ title, category, image, rating, players, featured = false }: GameCardProps) => {
+const GameCard = ({ id, title, category, image, rating, players, featured = false }: GameCardProps) => {
   const [hovered, setHovered] = useState(false);
   
   return (
@@ -37,9 +38,11 @@ const GameCard = ({ title, category, image, rating, players, featured = false }:
         
         {/* Play Button (shows on hover) */}
         <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${hovered ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
-          <button className="w-14 h-14 rounded-full bg-neon-purple/80 hover:bg-neon-purple text-white flex items-center justify-center shadow-lg">
-            <Play size={24} className="ml-1" />
-          </button>
+          <Link to={`/game/${id}`}>
+            <button className="w-14 h-14 rounded-full bg-neon-purple/80 hover:bg-neon-purple text-white flex items-center justify-center shadow-lg">
+              <Play size={24} className="ml-1" />
+            </button>
+          </Link>
         </div>
         
         {/* Game Info */}

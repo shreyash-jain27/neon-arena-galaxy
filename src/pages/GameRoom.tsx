@@ -7,6 +7,12 @@ import { games, chatMessages } from "../services/mockData";
 import { MessageSquare, Users, Trophy, ArrowLeft, Send, XCircle, Volume2, Volume1, VolumeX } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+// Import game components
+import CyberneticAssault from "../games/CyberneticAssault";
+import NeonRacerX from "../games/NeonRacerX";
+import GalaxyConquest from "../games/GalaxyConquest";
+import MysticLegends from "../games/MysticLegends";
+
 const GameRoom = () => {
   const { id } = useParams<{ id: string }>();
   const [game, setGame] = useState<any>(null);
@@ -53,6 +59,35 @@ const GameRoom = () => {
   
   const cycleVolume = () => {
     setVolume((volume + 1) % 3);
+  };
+
+  // Render the appropriate game component
+  const renderGame = () => {
+    if (!game) return null;
+
+    switch (game.id) {
+      case "cybernetic-assault":
+        return <CyberneticAssault />;
+      case "neon-racer-x":
+        return <NeonRacerX />;
+      case "galaxy-conquest":
+        return <GalaxyConquest />;
+      case "mystic-legends":
+        return <MysticLegends />;
+      default:
+        return (
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center p-6">
+              <h2 className="text-2xl font-bold mb-4">{game.name}</h2>
+              <p className="text-white/70 mb-6">{game.description}</p>
+              <div className="bg-gaming-highlight p-4 rounded-lg inline-block">
+                <p className="text-neon-purple mb-2">Game coming soon!</p>
+                <p className="text-white/60 text-sm">This game is currently in development</p>
+              </div>
+            </div>
+          </div>
+        );
+    }
   };
   
   if (!game) {
@@ -109,16 +144,7 @@ const GameRoom = () => {
         
         <div className="flex h-[calc(100vh-220px)] gap-4">
           <div className={`glass-card rounded-lg flex-grow overflow-hidden ${chatOpen ? 'w-3/4' : 'w-full'}`}>
-            <div className="w-full h-full bg-gaming-dark/50 flex items-center justify-center">
-              <div className="text-center p-6">
-                <h2 className="text-2xl font-bold mb-4">{game.name}</h2>
-                <p className="text-white/70 mb-6">{game.description}</p>
-                <div className="bg-gaming-highlight p-4 rounded-lg inline-block">
-                  <p className="text-neon-purple mb-2">Game would load here in a real implementation</p>
-                  <p className="text-white/60 text-sm">This is a placeholder for the game iframe</p>
-                </div>
-              </div>
-            </div>
+            {renderGame()}
           </div>
           
           {chatOpen && (

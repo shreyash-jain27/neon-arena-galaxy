@@ -1,124 +1,34 @@
 
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
-import GameCard, { GameCardProps } from './GameCard';
+import GameCard from './GameCard';
 import CategoryFilter from './CategoryFilter';
-
-// Sample data
-const featuredGames: GameCardProps[] = [
-  {
-    id: 1,
-    title: "Cybernetic Assault",
-    category: "Action",
-    image: "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
-    rating: 4.8,
-    players: "20k+",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Neon Racer X",
-    category: "Racing",
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
-    rating: 4.6,
-    players: "15k+",
-    featured: true
-  },
-  {
-    id: 3,
-    title: "Galaxy Conquest",
-    category: "Strategy",
-    image: "https://images.unsplash.com/photo-1614294149013-6b284299b59d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.9,
-    players: "18k+",
-    featured: true
-  },
-  {
-    id: 4,
-    title: "Mystic Legends",
-    category: "RPG",
-    image: "https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
-    rating: 4.7,
-    players: "12k+",
-    featured: true
-  }
-];
-
-const allGames: GameCardProps[] = [
-  ...featuredGames,
-  {
-    id: 5,
-    title: "Space Warriors",
-    category: "Action",
-    image: "https://images.unsplash.com/photo-1496347646636-ea47f7d6b37b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.3,
-    players: "8k+",
-  },
-  {
-    id: 6,
-    title: "Stealth Ninja",
-    category: "Action",
-    image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.5,
-    players: "10k+",
-  },
-  {
-    id: 7,
-    title: "Drift King",
-    category: "Racing",
-    image: "https://images.unsplash.com/photo-1591631367588-1628c879f148?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.2,
-    players: "7k+",
-  },
-  {
-    id: 8,
-    title: "City Builder Pro",
-    category: "Strategy",
-    image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80",
-    rating: 4.4,
-    players: "5k+",
-  },
-  {
-    id: 9,
-    title: "Dragon Quest",
-    category: "RPG",
-    image: "https://images.unsplash.com/photo-1605899435973-ca2d1a8431cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.6,
-    players: "9k+",
-  },
-  {
-    id: 10,
-    title: "Cooking Master",
-    category: "Casual",
-    image: "https://images.unsplash.com/photo-1528644198735-c5a229a9541b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.1,
-    players: "6k+",
-  },
-  {
-    id: 11,
-    title: "Puzzle Box",
-    category: "Casual",
-    image: "https://images.unsplash.com/photo-1614589118554-3b56b93aaedb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1773&q=80",
-    rating: 4.0,
-    players: "4k+",
-  },
-  {
-    id: 12,
-    title: "War Machines",
-    category: "Strategy",
-    image: "https://images.unsplash.com/photo-1569017388730-020b5f80a004?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
-    rating: 4.7,
-    players: "11k+",
-  }
-];
+import { games as mockGames } from '../services/mockData';
 
 const FeaturedGames = () => {
-  const categories = ["All", "Action", "Racing", "Strategy", "RPG", "Casual"];
-  const [activeCategory, setActiveCategory] = useState("All");
+  const categories = ["All Games", "Action", "Racing", "Strategy", "RPG", "Casual"];
+  const [activeCategory, setActiveCategory] = useState("All Games");
   
-  const filteredGames = activeCategory === "All" 
-    ? allGames 
-    : allGames.filter(game => game.category === activeCategory);
+  // Convert mock games to the format needed by GameCard
+  const transformedGames = mockGames.map(game => ({
+    id: game.id,
+    title: game.name,
+    category: game.category,
+    image: game.thumbnail,
+    rating: game.rating,
+    players: game.players,
+  }));
+  
+  // Featured games are the first 4
+  const featuredGames = transformedGames.slice(0, 4).map(game => ({
+    ...game,
+    featured: true
+  }));
+  
+  // Filter games based on selected category
+  const filteredGames = activeCategory === "All Games" 
+    ? transformedGames 
+    : transformedGames.filter(game => game.category === activeCategory);
   
   return (
     <section id="games" className="py-20">
