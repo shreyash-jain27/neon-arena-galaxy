@@ -8,7 +8,7 @@ const GalaxyConquest = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [resources, setResources] = useState(100);
-  const [planets, setPlanets] = useState<{ id: number; x: number; y: number; size: number; owned: boolean; }[]>([]);
+  const [planets, setPlanets] = useState<{ id: number; x: number; y: number; size: number; owned: boolean; enemy?: boolean; }[]>([]);
   const [selectedPlanet, setSelectedPlanet] = useState<number | null>(null);
   const { toast } = useToast();
   

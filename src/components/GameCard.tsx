@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Play, Star, Users, Award } from 'lucide-react';
 
 export interface GameCardProps {
-  id: number;
+  id: number | string;  // Updated to accept either number or string
   title: string;
   category: string;
   image: string;
