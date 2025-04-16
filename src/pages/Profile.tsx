@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { currentUser, storeItems } from "../services/mockData";
-import { Gamepad, Award, Gift, Calendar, Fire, Coins, Clock, User, Shield, Star, Trophy, Heart } from "lucide-react";
+import { Gamepad, Award, Gift, Calendar, Flame, Coins, Clock, User, Shield, Star, Trophy, Heart } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Profile = () => {
@@ -51,7 +51,7 @@ const Profile = () => {
               
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-gaming-highlight rounded-lg p-4 text-center">
-                  <Fire className="mx-auto mb-2 text-red-400" size={24} />
+                  <Flame className="mx-auto mb-2 text-red-400" size={24} />
                   <p className="text-sm text-white/60">Daily Streak</p>
                   <p className="text-xl font-bold">{currentUser.streak} Days</p>
                 </div>
@@ -91,7 +91,7 @@ const Profile = () => {
                 
                 <div className="bg-gaming-highlight/50 rounded-lg p-3 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
-                    <Fire size={18} />
+                    <Flame size={18} />
                   </div>
                   <div>
                     <h4 className="font-medium">On Fire</h4>
@@ -354,7 +354,7 @@ const Profile = () => {
                     
                     <div className="bg-gaming-highlight/30 p-5 rounded-lg mb-6">
                       <h4 className="text-lg font-medium mb-4 flex items-center gap-2">
-                        <Users size={18} />
+                        <User size={18} />
                         Online Friends (2)
                       </h4>
                       
